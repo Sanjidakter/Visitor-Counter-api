@@ -1,4 +1,5 @@
 POST http://localhost:3000/visitor/increment
 
+##get count
 
 GET http://localhost:3000/visitor/count

@@ -20,13 +20,13 @@ export class VisitorService {
   async getVisitorCount(): Promise<number> {
     const allVisitors = await this.visitorRepository.find();
   
-    let totalVisitorCount = 0;
-    for (const visitor of allVisitors) {
-      totalVisitorCount = visitor.visitorCount;
+    if (allVisitors.length === 0) {
+      return 0; // Return 0 if no visitors are found
     }
   
-    return totalVisitorCount;
+    return allVisitors[allVisitors.length - 1].visitorCount;
   }
+  
   
 
   private async calculateNewVisitorCount(): Promise<number> {
